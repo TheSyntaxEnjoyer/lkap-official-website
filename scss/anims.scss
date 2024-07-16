@@ -1,0 +1,34 @@
+// Specific Animations
+
+@keyframes hero__marquee {
+    to {
+        transform: translateX(calc(-100% - 1em));
+    }
+}
+
+// Common Reusable Animations
+
+@keyframes open__center {
+    // Requires both ::before and ::after. Apply on each side and set the directions accordingly.
+    to {
+        transform: translate(var(--x-axis), var(--y-axis));
+    }
+}
+
+@keyframes pan__in {
+    from {
+        opacity: 0;
+        transform: translate(var(--x-start), var(--y-start))
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(var(--x-end), var(--y-end))
+    }
+}
+
+@keyframes blur {
+    to {
+        filter: blur(var(--blur));
+    }
+}

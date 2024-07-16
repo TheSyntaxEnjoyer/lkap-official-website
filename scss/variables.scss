@@ -1,0 +1,50 @@
+// COLORS
+$primary: hsl(0, 0%, 9%);
+$primary-tint: hsl(0, 0%, 24%);
+$primary-shade: hsl(0, 0%, 0%);
+
+$secondary: hsl(45, 23%, 90%);
+$secondary-tint: hsl(45, 23%, 100%);
+$secondary-shade: hsl(45, 23%, 75%);
+
+$accent: hsl(348, 100%, 34%);
+$accent-tint: hsl(348, 100%, 49%);
+$accent-shade: hsl(348, 100%, 19%);
+
+// TYPOGRAPHY
+$heading: "Squada One";
+$subheading: "Jockey One";
+$paragraph: "Roboto Condensed";
+
+$fs-ratio: 1.414;
+
+$h1: pow($fs-ratio, 6) * 1rem;
+$h2: pow($fs-ratio, 5) * 1rem;
+$h3: pow($fs-ratio, 4) * 1rem;
+$h4: pow($fs-ratio, 3) * 1rem;
+$h5: pow($fs-ratio, 2) * 1rem;
+$h6: pow($fs-ratio, 1) * 1rem;
+$p: 1rem;
+$small: pow($fs-ratio, -1) rem;
+
+$lh-h1: $h1 - 2rem;
+
+// SPACING
+
+$gap-xs: 0.5em;
+$gap-s: 1em;
+$gap-m: 2em;
+$gap-l: 4em;
+$gap-xl: 8em;
+
+$pad-xs: 0.25em;
+$pad-s: 0.5em;
+$pad-m: 1em;
+$pad-l: 2.5em;
+$pad-xl: 5em;
+
+// TIMENG
+$time-f: 0.3s;
+$time-mf: 0.5s;
+$time-ms: 1s;
+$time-s: 1.5s;

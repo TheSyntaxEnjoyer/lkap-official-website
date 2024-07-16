@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Jockey+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Squada+One&display=swap");
+* {
+  box-sizing: border-box;
+  text-wrap: wrap;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Roboto Condensed";
+}
+
+html,
+body {
+  margin: 0;
+  white-space: nowrap;
+  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+strong {
+  color: hsl(348, 100%, 34%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+  margin: 0;
+}
+
+h1 {
+  font-size: 7.9927541887rem;
+  font-family: "Squada One";
+}
+
+h2 {
+  font-size: 5.6525842918rem;
+  font-family: "Squada One";
+}
+
+h3 {
+  font-size: 3.9975843648rem;
+  font-family: "Squada One";
+}
+
+h4 {
+  font-size: 2.827145944rem;
+  font-family: "Jockey One";
+}
+
+h5 {
+  font-size: 1.999396rem;
+  font-family: "Jockey One";
+}
+
+h6 {
+  font-size: 1.414rem;
+  font-family: "Jockey One";
+}
+
+p {
+  font-size: 1rem;
+  font-family: "Roboto Condensed";
+}
+
+small {
+  font-size: 0.7072135785 rem;
+  font-family: "Roboto Condensed";
+}
+
+a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .container {
+    margin: 0 2em;
+  }
+}
+@media only screen and (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+@media only screen and (min-width: 1672px) {
+  .container {
+    max-width: 1572px;
+  }
+}
+@keyframes hero__marquee {
+  to {
+    transform: translateX(calc(-100% - 1em));
+  }
+}
+@keyframes open__center {
+  to {
+    transform: translate(var(--x-axis), var(--y-axis));
+  }
+}
+@keyframes pan__in {
+  from {
+    opacity: 0;
+    transform: translate(var(--x-start), var(--y-start));
+  }
+  to {
+    opacity: 1;
+    transform: translate(var(--x-end), var(--y-end));
+  }
+}
+@keyframes blur {
+  to {
+    filter: blur(var(--blur));
+  }
+}
+body {
+  background-color: hsl(0, 0%, 9%);
+  color: hsl(45, 23%, 90%);
+}
+
+section.hero {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url("../assets/media/hero-bg.png");
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-color: hsl(0, 0%, 24%);
+}
+section.hero::before {
+  content: "";
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+section.hero .container {
+  height: 100%;
+  z-index: 2;
+  display: flex;
+}
+section.hero .hero__img {
+  background-image: url(../assets/media/hero-img.png);
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  height: 100%;
+}
+section.hero .content {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+}
+section.hero .content .heading .brand {
+  line-height: 1.999396rem;
+  text-transform: uppercase;
+  color: hsl(45, 23%, 75%);
+}
+section.hero .content .heading .catch-phrase {
+  line-height: 5.9927541887rem;
+  text-transform: uppercase;
+}
+section.hero .content .details {
+  width: 65%;
+}
+section.hero .content .details .call-to-action {
+  margin-top: 2em;
+  display: flex;
+  gap: 2em;
+}
+section.hero .content .details .call-to-action a:link,
+section.hero .content .details .call-to-action a:visited {
+  color: hsl(0, 0%, 9%);
+  text-transform: uppercase;
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em;
+}
+section.hero .content .details .call-to-action a:link.enroll,
+section.hero .content .details .call-to-action a:visited.enroll {
+  color: hsl(45, 23%, 90%);
+}
+section.hero .content .details .call-to-action a:link.enroll::before,
+section.hero .content .details .call-to-action a:visited.enroll::before {
+  background-color: hsl(348, 100%, 34%);
+}
+section.hero .content .details .call-to-action a:link.enroll::after,
+section.hero .content .details .call-to-action a:visited.enroll::after {
+  background-color: hsl(348, 100%, 49%);
+}
+section.hero .content .details .call-to-action a:link::before,
+section.hero .content .details .call-to-action a:visited::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(45, 23%, 90%);
+  z-index: -1;
+}
+section.hero .content .details .call-to-action a:link::after,
+section.hero .content .details .call-to-action a:visited::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: scaleX(0);
+  height: 100%;
+  background-color: hsl(45, 23%, 100%);
+  z-index: -1;
+  transition: 0.3s;
+}
+section.hero .content .details .call-to-action a:hover::after,
+section.hero .content .details .call-to-action a:active::after {
+  transform: scaleX(1);
+}
+
+/*# sourceMappingURL=main.css.map */

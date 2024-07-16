@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    text-wrap: wrap;
+}
+
+html {
+    font-size: 16px;
+    font-family: $paragraph;
+}
+
+html,
+body {
+    margin: 0;
+    white-space: nowrap;
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+strong {
+    color: $accent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+    margin: 0;
+}
+
+h1 {
+    font-size: $h1;
+    font-family: $heading;
+}
+
+h2 {
+    font-size: $h2;
+    font-family: $heading;
+}
+
+h3 {
+    font-size: $h3;
+    font-family: $heading;
+}
+
+h4 {
+    font-size: $h4;
+    font-family: $subheading;
+}
+
+h5 {
+    font-size: $h5;
+    font-family: $subheading;
+}
+
+h6 {
+    font-size: $h6;
+    font-family: $subheading;
+}
+
+p {
+    font-size: $p;
+    font-family: $paragraph;
+}
+
+small {
+    font-size: $small;
+    font-family: $paragraph;
+}
+
+a {
+    text-decoration: none;
+}
