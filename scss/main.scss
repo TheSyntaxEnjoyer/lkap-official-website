@@ -25,6 +25,8 @@ section.hero {
 
     background-color: $primary-tint;
 
+    overflow-y: hidden;
+
     &::before {
         content: '';
         top: 0;
@@ -46,12 +48,14 @@ section.hero {
     .hero__img {
         background-image: url(../assets/media/hero-img.png);
         background-size: cover;
-        background-position: center;
+        background-position: top;
         width: 50%;
         height: 100%;
+
+        margin-top: $gap-m;
     }
 
-    .content {
+    .hero__content {
         height: 100%;
         width: 50%;
 
@@ -81,66 +85,71 @@ section.hero {
                 display: flex;
                 gap: $gap-m;
 
-                a:link,
-                a:visited {
-                    color: $primary;
-
-                    text-transform: uppercase;
-
-                    width: 50%;
-
-                    position: relative;
-
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                a {
                     gap: $gap-xs;
-                    padding: $pad-s;
-
-                    &.enroll {
-                        color: $secondary;
-
-                        &::before {
-                            background-color: $accent;
-                        }
-
-                        &::after {
-                            background-color: $accent-tint;
-                        }
-                    }
-
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                        background-color: $secondary;
-                        z-index: -1;
-                    }
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        width: 100%;
-                        transform: scaleX(0);
-                        height: 100%;
-                        background-color: $secondary-tint;
-
-                        z-index: -1;
-
-                        transition: $time-f;
-                    }
-                }
-
-                a:hover,
-                a:active {
-                    &::after {
-                        transform: scaleX(1);
-                    }
                 }
             }
+        }
+    }
+}
+
+section.about {
+    height: 75vh;
+
+    .container {
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about__img {
+        width: 50%;
+        height: 100%;
+
+        position: relative;
+        // align-content: center;
+
+        display: flex;
+        align-items: center;
+
+        .wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            height: max-content;
+
+            transform: translateY(-45%)
+        }
+
+        img {
+            width: 75%;
+            aspect-ratio: 4/3;
+
+            &:nth-child(2) {
+                transform: translate(-45%, 65%);
+            }
+        }
+    }
+
+    .about__content {
+        width: 50%;
+        height: 100%;
+
+        text-align: right;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: $gap-m;
+
+        p {
+            width: 65%;
+        }
+
+        a {
+            gap: $gap-xs;
         }
     }
 }

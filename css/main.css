@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 0.85vmax;
   font-family: "Roboto Condensed";
 }
 
@@ -19,11 +19,74 @@ body {
 }
 
 .container {
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 5em;
 }
 
 strong {
   color: hsl(348, 100%, 34%);
+}
+
+a {
+  color: hsl(45, 23%, 75%);
+}
+
+a.btn:link, a.btn:visited {
+  color: hsl(0, 0%, 9%);
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+}
+a.btn:link::before, a.btn:visited::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(45, 23%, 90%);
+  z-index: -1;
+}
+a.btn:link::after, a.btn:visited::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: scaleX(0);
+  height: 100%;
+  background-color: hsl(45, 23%, 100%);
+  z-index: -1;
+  transition: 0.3s;
+}
+a.btn:link.btn-accent, a.btn:visited.btn-accent {
+  color: hsl(45, 23%, 90%);
+}
+a.btn:link.btn-accent::before, a.btn:visited.btn-accent::before {
+  background-color: hsl(348, 100%, 34%);
+}
+a.btn:link.btn-accent::after, a.btn:visited.btn-accent::after {
+  background-color: hsl(348, 100%, 49%);
+}
+a.btn:hover::after, a.btn:active::after {
+  transform: scaleX(1);
+}
+
+.fx-shadow {
+  --fx-shadow-color: hsl(45, 23%, 75%);
+  box-shadow: 0 5px 0 0 var(--fx-shadow-color);
+}
+.fx-shadow[fx-shadow-direction=right] {
+  box-shadow: 5px 5px 0 0 var(--fx-shadow-color);
+}
+.fx-shadow[fx-shadow-direction=left] {
+  box-shadow: -5px 5px 0 0 var(--fx-shadow-color);
+}
+.fx-shadow.fx-shadow-accent {
+  --fx-shadow-color: hsl(348, 100%, 19%);
 }
 
 h1,
@@ -77,43 +140,19 @@ small {
   font-family: "Roboto Condensed";
 }
 
-a {
-  text-decoration: none;
-}
-
-@media only screen and (max-width: 576px) {
-  .container {
-    margin: 0 2em;
-  }
-}
-@media only screen and (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
 @media only screen and (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    padding: 0 5em;
   }
 }
 @media only screen and (min-width: 1400px) {
   .container {
-    max-width: 1320px;
+    padding: 0 7em;
   }
 }
 @media only screen and (min-width: 1672px) {
   .container {
-    max-width: 1572px;
+    padding: 0 10em;
   }
 }
 @keyframes hero__marquee {
@@ -156,6 +195,7 @@ section.hero {
   background-position: center center;
   background-blend-mode: multiply;
   background-color: hsl(0, 0%, 24%);
+  overflow-y: hidden;
 }
 section.hero::before {
   content: "";
@@ -174,11 +214,12 @@ section.hero .container {
 section.hero .hero__img {
   background-image: url(../assets/media/hero-img.png);
   background-size: cover;
-  background-position: center;
+  background-position: top;
   width: 50%;
   height: 100%;
+  margin-top: 2em;
 }
-section.hero .content {
+section.hero .hero__content {
   height: 100%;
   width: 50%;
   display: flex;
@@ -186,72 +227,71 @@ section.hero .content {
   justify-content: center;
   gap: 2em;
 }
-section.hero .content .heading .brand {
+section.hero .hero__content .heading .brand {
   line-height: 1.999396rem;
   text-transform: uppercase;
   color: hsl(45, 23%, 75%);
 }
-section.hero .content .heading .catch-phrase {
+section.hero .hero__content .heading .catch-phrase {
   line-height: 5.9927541887rem;
   text-transform: uppercase;
 }
-section.hero .content .details {
+section.hero .hero__content .details {
   width: 65%;
 }
-section.hero .content .details .call-to-action {
+section.hero .hero__content .details .call-to-action {
   margin-top: 2em;
   display: flex;
   gap: 2em;
 }
-section.hero .content .details .call-to-action a:link,
-section.hero .content .details .call-to-action a:visited {
-  color: hsl(0, 0%, 9%);
-  text-transform: uppercase;
-  width: 50%;
-  position: relative;
+section.hero .hero__content .details .call-to-action a {
+  gap: 0.5em;
+}
+
+section.about {
+  height: 75vh;
+}
+section.about .container {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+section.about .about__img {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+section.about .about__img .wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  height: max-content;
+  transform: translateY(-45%);
+}
+section.about .about__img img {
+  width: 75%;
+  aspect-ratio: 4/3;
+}
+section.about .about__img img:nth-child(2) {
+  transform: translate(-45%, 65%);
+}
+section.about .about__content {
+  width: 50%;
+  height: 100%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 2em;
+}
+section.about .about__content p {
+  width: 65%;
+}
+section.about .about__content a {
   gap: 0.5em;
-  padding: 0.5em;
-}
-section.hero .content .details .call-to-action a:link.enroll,
-section.hero .content .details .call-to-action a:visited.enroll {
-  color: hsl(45, 23%, 90%);
-}
-section.hero .content .details .call-to-action a:link.enroll::before,
-section.hero .content .details .call-to-action a:visited.enroll::before {
-  background-color: hsl(348, 100%, 34%);
-}
-section.hero .content .details .call-to-action a:link.enroll::after,
-section.hero .content .details .call-to-action a:visited.enroll::after {
-  background-color: hsl(348, 100%, 49%);
-}
-section.hero .content .details .call-to-action a:link::before,
-section.hero .content .details .call-to-action a:visited::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: hsl(45, 23%, 90%);
-  z-index: -1;
-}
-section.hero .content .details .call-to-action a:link::after,
-section.hero .content .details .call-to-action a:visited::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  transform: scaleX(0);
-  height: 100%;
-  background-color: hsl(45, 23%, 100%);
-  z-index: -1;
-  transition: 0.3s;
-}
-section.hero .content .details .call-to-action a:hover::after,
-section.hero .content .details .call-to-action a:active::after {
-  transform: scaleX(1);
 }
 
 /*# sourceMappingURL=main.css.map */
