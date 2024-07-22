@@ -9,22 +9,27 @@
 body {
     background-color: $primary;
     color: $secondary;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    width: 100vw;
+    height: 100%;
 }
 
 section.hero {
     display: flex;
     width: 100%;
+    min-height: 100vh;
     height: 100vh;
-
+    padding: 0;
     position: relative;
-
     background-image: url("../assets/media/hero-bg.png");
     background-size: cover;
     background-position: center center;
     background-blend-mode: multiply;
-
     background-color: $primary-tint;
-
     overflow-y: hidden;
 
     &::before {
@@ -33,7 +38,6 @@ section.hero {
         position: absolute;
         width: 100%;
         height: 100%;
-
         backdrop-filter: blur(10px);
         z-index: 1;
     }
@@ -41,7 +45,6 @@ section.hero {
     .container {
         height: 100%;
         z-index: 2;
-
         display: flex;
     }
 
@@ -51,14 +54,12 @@ section.hero {
         background-position: top;
         width: 50%;
         height: 100%;
-
         margin-top: $gap-m;
     }
 
     .hero__content {
         height: 100%;
         width: 50%;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -94,62 +95,157 @@ section.hero {
 }
 
 section.about {
-    height: 75vh;
-
     .container {
         height: 100%;
-
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
 
     .about__img {
-        width: 50%;
-        height: 100%;
-
-        position: relative;
-        // align-content: center;
-
-        display: flex;
-        align-items: center;
-
-        .wrapper {
-            display: flex;
-            flex-wrap: nowrap;
-            height: max-content;
-
-            transform: translateY(-45%)
-        }
-
-        img {
-            width: 75%;
-            aspect-ratio: 4/3;
-
-            &:nth-child(2) {
-                transform: translate(-45%, 65%);
-            }
-        }
+        width: 45%;
+        aspect-ratio: 4/3;
+        background-image: url(../assets/media/about-img1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 5px solid $secondary;
+        box-shadow: $shadow-left-shade-m;
     }
 
     .about__content {
-        width: 50%;
+        width: calc(calc(calc(0.65 * 0.50) * 100) * 1%);
         height: 100%;
-
         text-align: right;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: end;
         gap: $gap-m;
 
-        p {
-            width: 65%;
-        }
-
         a {
             gap: $gap-xs;
+        }
+    }
+}
+
+section.timeline {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-l;
+    }
+
+    a {
+        gap: $gap-xs;
+    }
+
+    .timeline__content {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: $gap-s;
+            width: 65%;
+        }
+    }
+
+    .timeline__timeline {
+        --event-width: 50ch;
+        display: flex;
+        mask-image: linear-gradient(90deg, $primary 75%, rgba($primary, 0.2) 94%, transparent 100%);
+        overflow-x: hidden;
+
+        &>* {
+            flex-shrink: 0;
+        }
+
+        &:hover {
+            .event {
+
+                .details,
+                .banner {
+                    filter: blur(5px);
+                }
+            }
+        }
+
+        .event {
+            width: var(--event-width);
+            transition: $time-f;
+
+            &:hover {
+                width: calc(var(--event-width) * 1.5);
+
+                .details,
+                .banner {
+                    filter: blur(0);
+                }
+            }
+        }
+
+        .details,
+        .banner {
+            transition: $time-f;
+        }
+
+        .details {
+            text-align: center;
+            width: var(--event-width);
+            padding: 0 $pad-m;
+            margin: 0 auto;
+
+            p {
+                display: none;
+            }
+        }
+
+        .line {
+            margin: $gap-m 0;
+            width: 100%;
+            height: 0.25em;
+            background-color: $secondary;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: $pad-xs $pad-l;
+                background-color: $secondary;
+                color: $primary;
+                text-transform: uppercase;
+            }
+        }
+
+        .banner {
+            background-image: url(../assets/media/achievements-banner.jpg);
+            background-position: center;
+            background-size: cover;
+            width: calc(100% - calc($pad-m * 2));
+            aspect-ratio: 4/3;
+            border: $border-m;
+            margin: 0 $pad-m;
+        }
+
+    }
+}
+
+section.instructors {
+    .container {
+        .instructors__content {
+            .wrapper {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: $gap-s;
+            }
         }
     }
 }

@@ -53,3 +53,54 @@ $time-f: 0.3s;
 $time-mf: 0.5s;
 $time-ms: 1s;
 $time-s: 1.5s;
+
+// PROPERTIES
+// border
+$border-s: 2.5px solid $secondary;
+$border-m: 5px solid $secondary;
+$border-l: 10px solid $secondary;
+
+$border-shade-s: 2.5px solid $secondary-shade;
+$border-shade-m: 5px solid $secondary-shade;
+$border-shade-l: 10px solid $secondary-shade;
+
+$border-accent-s: 2.5px solid $accent;
+$border-accent-m: 5px solid $accent;
+$border-accent-l: 10px solid $accent;
+
+$border-accent-shade-s: 2.5px solid $accent-shade;
+$border-accent-shade-m: 5px solid $accent-shade;
+$border-accent-shade-l: 10px solid $accent-shade;
+
+// shadow
+$shadow-left-s: -10px 10px 0 0 $secondary;
+$shadow-left-m: -15px 15px 0 0 $secondary;
+$shadow-left-l: -20px 20px 0 0 $secondary;
+
+$shadow-left-shade-s: -10px 10px 0 0 $secondary-shade;
+$shadow-left-shade-m: -15px 15px 0 0 $secondary-shade;
+$shadow-left-shade-l: -20px 20px 0 0 $secondary-shade;
+
+$shadow-right-s: 10px 10px 0 0 $secondary;
+$shadow-right-m: 15px 15px 0 0 $secondary;
+$shadow-right-l: 20px 20px 0 0 $secondary;
+
+$shadow-right-shade-s: 10px 10px 0 0 $secondary-shade;
+$shadow-right-shade-m: 15px 15px 0 0 $secondary-shade;
+$shadow-right-shade-l: 20px 20px 0 0 $secondary-shade;
+
+$shadow-left-accent-s: -10px 10px 0 0 $accent;
+$shadow-left-accent-m: -15px 15px 0 0 $accent;
+$shadow-left-accent-l: -20px 20px 0 0 $accent;
+
+$shadow-left-accent-shade-s: -10px 10px 0 0 $accent-shade;
+$shadow-left-accent-shade-m: -15px 15px 0 0 $accent-shade;
+$shadow-left-accent-shade-l: -20px 20px 0 0 $accent-shade;
+
+$shadow-right-accent-s: 10px 10px 0 0 $accent;
+$shadow-right-accent-m: 15px 15px 0 0 $accent;
+$shadow-right-accent-l: 20px 20px 0 0 $accent;
+
+$shadow-right-accent-shade-s: 10px 10px 0 0 $accent-shade;
+$shadow-right-accent-shade-m: 15px 15px 0 0 $accent-shade;
+$shadow-right-accent-shade-l: 20px 20px 0 0 $accent-shade;

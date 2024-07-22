@@ -4,7 +4,8 @@
 }
 
 html {
-    font-size: 0.85vmax;
+    // font-size: calc(calc(1vmax * 2) / 1vmax);
+    font-size: 16px;
     font-family: $paragraph;
 }
 
@@ -17,6 +18,11 @@ body {
     height: 100vh;
 }
 
+section {
+    padding: $space-s 0;
+    height: 100vh;
+}
+
 .container {
     width: 100%;
     padding: 0 $space-s;
@@ -24,6 +30,11 @@ body {
 
 strong {
     color: $accent;
+}
+
+hr {
+    color: $secondary;
+    border: $border-s;
 }
 
 a {

@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 0.85vmax;
+  font-size: 16px;
   font-family: "Roboto Condensed";
 }
 
@@ -18,6 +18,11 @@ body {
   height: 100vh;
 }
 
+section {
+  padding: 5em 0;
+  height: 100vh;
+}
+
 .container {
   width: 100%;
   padding: 0 5em;
@@ -25,6 +30,11 @@ body {
 
 strong {
   color: hsl(348, 100%, 34%);
+}
+
+hr {
+  color: hsl(45, 23%, 90%);
+  border: 2.5px solid hsl(45, 23%, 90%);
 }
 
 a {
@@ -183,12 +193,21 @@ small {
 body {
   background-color: hsl(0, 0%, 9%);
   color: hsl(45, 23%, 90%);
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100vw;
+  height: 100%;
 }
 
 section.hero {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   height: 100vh;
+  padding: 0;
   position: relative;
   background-image: url("../assets/media/hero-bg.png");
   background-size: cover;
@@ -248,37 +267,24 @@ section.hero .hero__content .details .call-to-action a {
   gap: 0.5em;
 }
 
-section.about {
-  height: 75vh;
-}
 section.about .container {
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 section.about .about__img {
-  width: 50%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-section.about .about__img .wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  height: max-content;
-  transform: translateY(-45%);
-}
-section.about .about__img img {
-  width: 75%;
+  width: 45%;
   aspect-ratio: 4/3;
-}
-section.about .about__img img:nth-child(2) {
-  transform: translate(-45%, 65%);
+  background-image: url(../assets/media/about-img1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 5px solid hsl(45, 23%, 90%);
+  box-shadow: -15px 15px 0 0 hsl(45, 23%, 75%);
 }
 section.about .about__content {
-  width: 50%;
+  width: 32.5%;
   height: 100%;
   text-align: right;
   display: flex;
@@ -287,11 +293,100 @@ section.about .about__content {
   align-items: end;
   gap: 2em;
 }
-section.about .about__content p {
-  width: 65%;
-}
 section.about .about__content a {
   gap: 0.5em;
+}
+
+section.timeline .container {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+}
+section.timeline a {
+  gap: 0.5em;
+}
+section.timeline .timeline__content {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+section.timeline .timeline__content .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  width: 65%;
+}
+section.timeline .timeline__timeline {
+  --event-width: 50ch;
+  display: flex;
+  mask-image: linear-gradient(90deg, hsl(0, 0%, 9%) 75%, rgba(23, 23, 23, 0.2) 94%, transparent 100%);
+  overflow-x: hidden;
+}
+section.timeline .timeline__timeline > * {
+  flex-shrink: 0;
+}
+section.timeline .timeline__timeline:hover .event .details,
+section.timeline .timeline__timeline:hover .event .banner {
+  filter: blur(5px);
+}
+section.timeline .timeline__timeline .event {
+  width: var(--event-width);
+  transition: 0.3s;
+}
+section.timeline .timeline__timeline .event:hover {
+  width: calc(var(--event-width) * 1.5);
+}
+section.timeline .timeline__timeline .event:hover .details,
+section.timeline .timeline__timeline .event:hover .banner {
+  filter: blur(0);
+}
+section.timeline .timeline__timeline .details,
+section.timeline .timeline__timeline .banner {
+  transition: 0.3s;
+}
+section.timeline .timeline__timeline .details {
+  text-align: center;
+  width: var(--event-width);
+  padding: 0 1em;
+  margin: 0 auto;
+}
+section.timeline .timeline__timeline .details p {
+  display: none;
+}
+section.timeline .timeline__timeline .line {
+  margin: 2em 0;
+  width: 100%;
+  height: 0.25em;
+  background-color: hsl(45, 23%, 90%);
+  position: relative;
+}
+section.timeline .timeline__timeline .line span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.25em 2.5em;
+  background-color: hsl(45, 23%, 90%);
+  color: hsl(0, 0%, 9%);
+  text-transform: uppercase;
+}
+section.timeline .timeline__timeline .banner {
+  background-image: url(../assets/media/achievements-banner.jpg);
+  background-position: center;
+  background-size: cover;
+  width: calc(100% - 2em);
+  aspect-ratio: 4/3;
+  border: 5px solid hsl(45, 23%, 90%);
+  margin: 0 1em;
+}
+
+section.instructors .container .instructors__content .wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 /*# sourceMappingURL=main.css.map */
