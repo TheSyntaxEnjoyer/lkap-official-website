@@ -20,7 +20,7 @@ body {
 
 section {
   padding: 5em 0;
-  height: 100vh;
+  padding: 7em 0;
 }
 
 .container {
@@ -39,6 +39,7 @@ hr {
 
 a {
   color: hsl(45, 23%, 75%);
+  transition: 0.3s;
 }
 
 a.btn:link, a.btn:visited {
@@ -381,12 +382,151 @@ section.timeline .timeline__timeline .banner {
   margin: 0 1em;
 }
 
+section.instructors {
+  --card-width: 50ch;
+}
+section.instructors .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25ch;
+}
 section.instructors .container .instructors__content .wrapper {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+section.instructors .container .instructors__cards {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  width: max-content;
+}
+section.instructors .container .instructors__cards:hover .card .wrapper {
+  filter: blur(5px);
+  background-color: hsl(45, 23%, 75%);
+}
+section.instructors .container .instructors__cards .card .wrapper {
+  background-color: hsl(45, 23%, 90%);
+  color: hsl(0, 0%, 9%);
+  width: var(--card-width);
+  padding: 0.5em;
+  transition: 0.3s;
+}
+section.instructors .container .instructors__cards .card .wrapper:hover, section.instructors .container .instructors__cards .card .wrapper:active {
+  filter: blur(0);
+  transform: translateY(-7.5%);
+  background-color: hsl(45, 23%, 90%);
+}
+section.instructors .container .instructors__cards .card .wrapper .banner {
+  background-image: url(attr(banner_img));
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  aspect-ratio: 3/3;
+  position: relative;
+}
+section.instructors .container .instructors__cards .card .wrapper .banner.card__chief {
+  background-color: hsl(0, 0%, 24%);
+  background-blend-mode: overlay;
+}
+section.instructors .container .instructors__cards .card .wrapper .banner img {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  aspect-ratio: 3/4;
+  filter: drop-shadow(0px 20px 10px hsl(0, 0%, 9%));
+}
+section.instructors .container .instructors__cards .card .wrapper .details {
+  padding: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+section.instructors .container .instructors__cards .card .wrapper .details .name h6 {
+  color: hsl(0, 0%, 24%);
+}
+section.instructors .container .instructors__cards .card .wrapper .details .name h6 strong {
+  color: hsl(348, 100%, 49%);
+}
+section.instructors .container .instructors__cards .card .wrapper .details .name h6 p {
+  color: hsl(0, 0%, 24%);
+  letter-spacing: 0.25em;
+}
+section.instructors .container .instructors__cards .card .wrapper .details .description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+section.instructors .container .instructors__cards .card .wrapper .details .description a {
+  color: hsl(0, 0%, 24%);
+}
+section.instructors .container .instructors__cards .card .wrapper .details .description a:hover {
+  color: hsl(0, 0%, 9%);
+}
+section.instructors .container .instructors__cards .card .wrapper .links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  font-size: 1.414rem;
+}
+section.instructors .container .instructors__cards .card .wrapper .links a i {
+  transition: 0.3s;
+  color: hsl(0, 0%, 24%);
+}
+section.instructors .container .instructors__cards .card .wrapper .links a:hover i, section.instructors .container .instructors__cards .card .wrapper .links a:active i {
+  color: hsl(0, 0%, 9%);
+}
+
+section.credentials {
+  position: relative;
+}
+section.credentials .container {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+section.credentials .container > div {
+  width: 50%;
+}
+section.credentials .container .credentials__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+section.credentials .container .credentials__content p {
+  width: 65%;
+}
+section.credentials .container .credentials__asai {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 2em;
+}
+section.credentials .container .credentials__asai div {
+  background-color: hsl(45, 23%, 90%);
+  color: hsl(0, 0%, 9%);
+  width: 65%;
+  padding: 1em;
+  box-shadow: 15px 15px 0 0 hsl(45, 23%, 75%);
+}
+section.credentials .container .credentials__asai .asai__brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  text-align: left;
+}
+section.credentials .container .credentials__asai .asai__brand img {
+  width: 15ch;
+  aspect-ratio: 1/1;
 }
 
 /*# sourceMappingURL=main.css.map */

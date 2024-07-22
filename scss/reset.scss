@@ -20,7 +20,10 @@ body {
 
 section {
     padding: $space-s 0;
-    height: 100vh;
+    // min-height: 100vh;
+    // height: 1px;
+    // margin-bottom: $space-s;
+    padding: $space-m 0;
 }
 
 .container {
@@ -39,6 +42,7 @@ hr {
 
 a {
     color: $secondary-shade;
+    transition: $time-f;
 }
 
 a.btn {

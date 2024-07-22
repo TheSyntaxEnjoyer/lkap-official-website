@@ -29,6 +29,11 @@ $small: pow($fs-ratio, -1) rem;
 
 $lh-h1: $h1 - 2rem;
 
+$lspace-s: 0.05em;
+$lspace-m: 0.25em;
+$lspace-l: 0.75em;
+$lspace-xl: 1em;
+
 // SPACING
 
 $gap-xs: 0.5em;
@@ -104,3 +109,11 @@ $shadow-right-accent-l: 20px 20px 0 0 $accent;
 $shadow-right-accent-shade-s: 10px 10px 0 0 $accent-shade;
 $shadow-right-accent-shade-m: 15px 15px 0 0 $accent-shade;
 $shadow-right-accent-shade-l: 20px 20px 0 0 $accent-shade;
+
+$blur-s: 5px;
+$blur-m: 10px;
+$blur-l: 20px;
+$blur-xl: 30px;
+
+// MISC
+$bg-img: url(attr(banner_img));

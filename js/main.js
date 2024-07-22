@@ -11,3 +11,11 @@ collapse__btn.click(() => {
 window.addEventListener('scroll', () => {
     document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
 }, false);
+
+// CLAMP
+var module = $('.clamp');
+for (var i = module.length - 1; i >= 0; i--) {
+    $clamp(module[i], {
+        clamp: 3
+    });
+}

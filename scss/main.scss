@@ -38,7 +38,7 @@ section.hero {
         position: absolute;
         width: 100%;
         height: 100%;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur($blur-m);
         z-index: 1;
     }
 
@@ -169,7 +169,7 @@ section.timeline {
 
                 .details,
                 .banner {
-                    filter: blur(5px);
+                    filter: blur($blur-s);
                 }
             }
         }
@@ -237,7 +237,15 @@ section.timeline {
 }
 
 section.instructors {
+    --card-width: 50ch;
+
     .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 25ch;
+
         .instructors__content {
             .wrapper {
                 width: 100%;
@@ -245,6 +253,190 @@ section.instructors {
                 display: flex;
                 flex-direction: column;
                 gap: $gap-s;
+            }
+        }
+
+        .instructors__cards {
+
+            display: flex;
+            justify-content: center;
+            gap: $gap-m;
+
+            width: max-content;
+
+            &:hover {
+                .card .wrapper {
+                    filter: blur($blur-s);
+                    background-color: $secondary-shade;
+                }
+            }
+
+            .card {
+
+                .wrapper {
+                    background-color: $secondary;
+                    color: $primary;
+
+                    width: var(--card-width);
+
+                    padding: $pad-s;
+
+                    transition: $time-f;
+
+                    &:hover,
+                    &:active {
+                        filter: blur(0);
+                        transform: translateY(-7.5%);
+                        background-color: $secondary;
+                    }
+
+                    .banner {
+                        // background-image: url(../assets/media/instructors/alrey-bg.png);
+                        background-image: $bg-img;
+                        background-size: cover;
+                        background-position: bottom;
+                        width: 100%;
+                        aspect-ratio: 3/3;
+
+                        position: relative;
+
+                        &.card__chief {
+                            background-color: $primary-tint;
+                            background-blend-mode: overlay;
+                        }
+
+                        img {
+                            position: absolute;
+                            bottom: 5%;
+
+                            width: 100%;
+                            aspect-ratio: 3/4;
+
+                            filter: drop-shadow(0px 20px 10px $primary);
+                        }
+                    }
+
+                    .details {
+                        padding: $pad-m;
+                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        gap: $gap-s;
+
+                        .name {
+                            h6 {
+                                color: $primary-tint;
+
+                                strong {
+                                    color: $accent-tint;
+                                }
+
+
+                                p {
+                                    color: $primary-tint;
+                                    letter-spacing: $lspace-m;
+                                }
+                            }
+                        }
+
+                        .description {
+                            display: flex;
+                            flex-direction: column;
+                            gap: $gap-xs;
+
+                            a {
+                                color: $primary-tint;
+
+                                &:hover {
+                                    color: $primary;
+                                }
+                            }
+                        }
+                    }
+
+                    .links {
+                        display: flex;
+                        justify-content: center;
+
+                        gap: $gap-s;
+
+                        font-size: $h6;
+
+                        a {
+                            i {
+                                transition: $time-f;
+                                color: $primary-tint;
+                            }
+
+                            &:hover,
+                            &:active {
+                                i {
+                                    color: $primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.credentials {
+    position: relative;
+
+    .container {
+        display: flex;
+        gap: $gap-m;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 100%;
+
+        &>div {
+            width: 50%;
+        }
+
+        .credentials__content {
+            display: flex;
+            flex-direction: column;
+            gap: $gap-m;
+
+            p {
+                width: 65%;
+            }
+        }
+
+        .credentials__asai {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            gap: $gap-m;
+
+            div {
+                background-color: $secondary;
+                color: $primary;
+
+                width: 65%;
+                padding: $pad-m;
+
+                box-shadow: $shadow-right-shade-m;
+            }
+
+            .asai__brand {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: $gap-m;
+
+                text-align: left;
+
+                img {
+                    width: 15ch;
+                    aspect-ratio: 1/1;
+                }
             }
         }
     }
