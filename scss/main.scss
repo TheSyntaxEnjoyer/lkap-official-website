@@ -14,7 +14,7 @@ body {
 }
 
 main {
-    width: 100vw;
+    width: 100%;
     height: 100%;
 }
 
@@ -164,13 +164,12 @@ section.timeline {
             flex-shrink: 0;
         }
 
-        &:hover {
-            .event {
+        &:hover,
+        &:active {
 
-                .details,
-                .banner {
-                    filter: blur($blur-s);
-                }
+            .banner,
+            .details {
+                filter: blur($blur-s);
             }
         }
 
@@ -179,11 +178,14 @@ section.timeline {
             transition: $time-f;
 
             &:hover {
-                width: calc(var(--event-width) * 1.5);
 
-                .details,
-                .banner {
+                .banner,
+                .details {
                     filter: blur(0);
+                }
+
+                .banner .description {
+                    transform: scale(1);
                 }
             }
         }
@@ -198,10 +200,6 @@ section.timeline {
             width: var(--event-width);
             padding: 0 $pad-m;
             margin: 0 auto;
-
-            p {
-                display: none;
-            }
         }
 
         .line {
@@ -231,6 +229,33 @@ section.timeline {
             aspect-ratio: 4/3;
             border: $border-m;
             margin: 0 $pad-m;
+
+            display: flex;
+            align-items: end;
+
+            .description {
+                width: 100%;
+                height: 50%;
+                background-color: $secondary;
+                color: $primary;
+
+                transition: $time-f;
+
+                transform: scaleY(0);
+                transform-origin: bottom;
+
+                text-align: center;
+                padding: $pad-s;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: $gap-xs;
+
+                a {
+                    color: $primary-tint;
+                }
+            }
         }
 
     }
@@ -382,61 +407,50 @@ section.instructors {
     }
 }
 
-section.credentials {
-    position: relative;
+section.contact {
+    background-image: url("../assets/media/contact-bg.jpg");
+    background-position: center;
+    background-size: cover;
+
+    background-color: $primary-tint;
+    background-blend-mode: multiply;
 
     .container {
         display: flex;
-        gap: $gap-m;
-        align-items: center;
-        justify-content: center;
-
-        width: 100%;
-        height: 100%;
+        gap: $gap-xl;
 
         &>div {
             width: 50%;
         }
 
-        .credentials__content {
+        .contact__form {
             display: flex;
             flex-direction: column;
             gap: $gap-m;
 
-            p {
-                width: 65%;
+            .form__details {
+                display: flex;
+                flex-direction: column;
+                gap: $gap-m;
+
+                .contact__links {
+                    display: flex;
+                    align-items: center;
+                    font-size: $h6;
+                    gap: $gap-s;
+                }
+
+
             }
         }
 
-        .credentials__asai {
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-            align-items: end;
-            gap: $gap-m;
-
-            div {
-                background-color: $secondary;
-                color: $primary;
-
-                width: 65%;
-                padding: $pad-m;
+        .contact__map {
+            iframe {
+                width: 100%;
+                height: 100%;
 
                 box-shadow: $shadow-right-shade-m;
-            }
-
-            .asai__brand {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: $gap-m;
-
-                text-align: left;
-
-                img {
-                    width: 15ch;
-                    aspect-ratio: 1/1;
-                }
+                border: $border-shade-m;
             }
         }
     }
