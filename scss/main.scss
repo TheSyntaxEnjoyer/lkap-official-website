@@ -7,10 +7,11 @@
 @import "anims.scss";
 
 body {
-    background-color: $primary;
     color: $secondary;
     width: 100%;
     height: 100%;
+
+    overflow-y: hidden;
 }
 
 main {
@@ -31,6 +32,41 @@ section.hero {
     background-blend-mode: multiply;
     background-color: $primary-tint;
     overflow-y: hidden;
+
+    .hero__transition {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        display: flex;
+
+        &>div {
+            width: 50%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+
+            &.transition__left {
+                div {
+                    transform-origin: left;
+                }
+            }
+
+            &.transition__right {
+                div {
+                    transform-origin: right;
+                }
+            }
+
+            div {
+                flex-grow: 1;
+                width: 100%;
+                background-color: $primary;
+            }
+        }
+    }
 
     &::before {
         content: '';
@@ -95,41 +131,95 @@ section.hero {
 }
 
 section.about {
-    .container {
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $gap-xl;
+    overflow-x: hidden;
 
-    .about__img {
-        width: 45%;
-        aspect-ratio: 4/3;
-        background-image: url(../assets/media/about-img1.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        border: 5px solid $secondary;
-        box-shadow: $shadow-left-shade-m;
+    padding-bottom: 0;
+
+    .about__imgs {
+        width: 100%;
+        display: flex;
+
+        img {
+            width: 33.33%;
+            aspect-ratio: 4/3;
+
+            // vertical-align: middle;
+            display: block;
+
+            border: $border-shade-m;
+
+            transition: box-shadow $time-f;
+
+            &:nth-child(1) {
+                transform: translate(-15%, -50%);
+                rotate: -10deg;
+
+                box-shadow: $shadow-right-accent-m;
+            }
+
+            &:nth-child(3) {
+                rotate: 10deg;
+                transform: translate(15%, -50%);
+
+                box-shadow: $shadow-left-accent-m;
+            }
+
+            &.about__end {
+                border: none;
+                box-shadow: 0 0 0 0;
+            }
+        }
     }
 
     .about__content {
         width: calc(calc(calc(0.65 * 0.50) * 100) * 1%);
         height: 100%;
-        text-align: right;
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: end;
+        align-items: center;
         gap: $gap-m;
 
         a {
             gap: $gap-xs;
         }
+
+        &>* {}
     }
 }
 
 section.timeline {
+    padding: 0;
+
+    color: $primary;
+
+    margin: $space-m 0;
+
+    .fx__revealIn {
+        height: calc(100% + 150px);
+        transform: translateY(-75px);
+    }
+
+    .timeline__shadow {
+        filter: drop-shadow(0 35px 0px $secondary) drop-shadow(0 -35px 0px $secondary) drop-shadow(0 25px 0px $secondary-shade) drop-shadow(0 -25px 0px $secondary-shade) drop-shadow(0 15px 0px $primary-tint) drop-shadow(0 -15px 0px $primary-tint);
+
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .fx__torn {
+        background-color: $secondary-tint;
+
+        padding: $space-m 0;
+    }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -145,6 +235,8 @@ section.timeline {
         display: flex;
         justify-content: center;
 
+        text-align: center;
+
         .wrapper {
             display: flex;
             flex-direction: column;
@@ -155,10 +247,12 @@ section.timeline {
     }
 
     .timeline__timeline {
-        --event-width: 50ch;
+        --event-width: 22.5vw;
+        --event-height: 30ch;
         display: flex;
         mask-image: linear-gradient(90deg, $primary 75%, rgba($primary, 0.2) 94%, transparent 100%);
         overflow-x: hidden;
+
 
         &>* {
             flex-shrink: 0;
@@ -206,8 +300,33 @@ section.timeline {
             margin: $gap-m 0;
             width: 100%;
             height: 0.25em;
-            background-color: $secondary;
+            background-color: $primary-tint;
             position: relative;
+
+            .line__highlight {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                opacity: 0;
+                height: 100%;
+                background-color: $accent-tint;
+                z-index: 9;
+
+                // transition: $time-s;
+                // transition-delay: var(--delay);
+            }
+
+            // &::after {
+            //     content: "";
+
+            // }
+
+            // &.line__active {
+
+            //     .line__highlight {
+            //         width: 100%;
+            //     }
+            // }
 
             span {
                 position: absolute;
@@ -215,9 +334,10 @@ section.timeline {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 padding: $pad-xs $pad-l;
-                background-color: $secondary;
-                color: $primary;
+                background-color: $accent;
+                color: $secondary;
                 text-transform: uppercase;
+                z-index: 999;
             }
         }
 
@@ -226,8 +346,8 @@ section.timeline {
             background-position: center;
             background-size: cover;
             width: calc(100% - calc($pad-m * 2));
-            aspect-ratio: 4/3;
-            border: $border-m;
+            height: var(--event-height);
+            border: $border-accent-m;
             margin: 0 $pad-m;
 
             display: flex;
@@ -236,8 +356,8 @@ section.timeline {
             .description {
                 width: 100%;
                 height: 50%;
-                background-color: $secondary;
-                color: $primary;
+                background-color: $accent;
+                color: $secondary;
 
                 transition: $time-f;
 
@@ -253,7 +373,7 @@ section.timeline {
                 gap: $gap-xs;
 
                 a {
-                    color: $primary-tint;
+                    color: $secondary-tint;
                 }
             }
         }
@@ -271,136 +391,36 @@ section.instructors {
 
         gap: 25ch;
 
-        .instructors__content {
+        .instructors__heading {
             .wrapper {
                 width: 100%;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
                 gap: $gap-s;
+
+                text-align: center;
             }
         }
 
-        .instructors__cards {
+        .instructors__content {
+            width: 100%;
 
-            display: flex;
-            justify-content: center;
-            gap: $gap-m;
-
-            width: max-content;
-
-            &:hover {
-                .card .wrapper {
-                    filter: blur($blur-s);
-                    background-color: $secondary-shade;
-                }
+            &>div {
+                width: 50%;
             }
 
-            .card {
+            .instructors__img {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-                .wrapper {
-                    background-color: $secondary;
-                    color: $primary;
+                filter: drop-shadow(-20px 0px 0px $accent-tint) drop-shadow(-20px 0px 0px $accent) drop-shadow(-20px 0px 0px $secondary-shade);
 
-                    width: var(--card-width);
-
-                    padding: $pad-s;
-
-                    transition: $time-f;
-
-                    &:hover,
-                    &:active {
-                        filter: blur(0);
-                        transform: translateY(-7.5%);
-                        background-color: $secondary;
-                    }
-
-                    .banner {
-                        // background-image: url(../assets/media/instructors/alrey-bg.png);
-                        background-image: $bg-img;
-                        background-size: cover;
-                        background-position: bottom;
-                        width: 100%;
-                        aspect-ratio: 3/3;
-
-                        position: relative;
-
-                        &.card__chief {
-                            background-color: $primary-tint;
-                            background-blend-mode: overlay;
-                        }
-
-                        img {
-                            position: absolute;
-                            bottom: 5%;
-
-                            width: 100%;
-                            aspect-ratio: 3/4;
-
-                            filter: drop-shadow(0px 20px 10px $primary);
-                        }
-                    }
-
-                    .details {
-                        padding: $pad-m;
-                        text-align: center;
-                        display: flex;
-                        flex-direction: column;
-                        gap: $gap-s;
-
-                        .name {
-                            h6 {
-                                color: $primary-tint;
-
-                                strong {
-                                    color: $accent-tint;
-                                }
-
-
-                                p {
-                                    color: $primary-tint;
-                                    letter-spacing: $lspace-m;
-                                }
-                            }
-                        }
-
-                        .description {
-                            display: flex;
-                            flex-direction: column;
-                            gap: $gap-xs;
-
-                            a {
-                                color: $primary-tint;
-
-                                &:hover {
-                                    color: $primary;
-                                }
-                            }
-                        }
-                    }
-
-                    .links {
-                        display: flex;
-                        justify-content: center;
-
-                        gap: $gap-s;
-
-                        font-size: $h6;
-
-                        a {
-                            i {
-                                transition: $time-f;
-                                color: $primary-tint;
-                            }
-
-                            &:hover,
-                            &:active {
-                                i {
-                                    color: $primary;
-                                }
-                            }
-                        }
-                    }
+                img {
+                    width: 100%;
+                    aspect-ratio: 3/4;
                 }
             }
         }

@@ -9,6 +9,7 @@
 // Common Reusable Animations
 
 @keyframes open__center {
+
     // Requires both ::before and ::after. Apply on each side and set the directions accordingly.
     to {
         transform: translate(var(--x-axis), var(--y-axis));
@@ -30,5 +31,91 @@
 @keyframes blur {
     to {
         filter: blur(var(--blur));
+    }
+}
+
+// CLASSES
+
+.fx__fadeIn {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.fx__group-fadeIn {
+    &>* {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+}
+
+.fx__fadeIn-Down {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+
+.fx__group-fadeIn-Down {
+    &>* {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+}
+
+.fx__fadeIn-Right {
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+.fx__group-fadeIn-Right {
+    &>* {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+}
+
+.fx__fadeIn-Left {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.fx__group-fadeIn-Left {
+    &>* {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+}
+
+.fx__revealIn {
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    z-index: 999999999;
+
+    display: flex;
+
+    div {
+        width: 50%;
+        height: 100%;
+
+        background-color: $primary;
+    }
+
+    .fx__e1 {
+        transform-origin: left;
+
+        &.active {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba($primary, 1) 92%, rgba($primary, 0.772128919927346) 94%, rgba($primary, 0.3071429255295869) 97%, rgba($primary, 0) 100%);
+        }
+    }
+
+    .fx__e2 {
+        transform-origin: right;
+
+        &.active {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba($primary, 0) 0%, rgba($primary, 0.3071429255295869) 3%, rgba($primary, 0.772128919927346) 6%, rgba($primary, 1) 8%);
+        }
     }
 }

@@ -9,6 +9,10 @@ html {
     font-family: $paragraph;
 }
 
+// body {
+//     font-size: $p;
+// }
+
 html,
 body {
     margin: 0;
@@ -23,11 +27,9 @@ body {
 }
 
 section {
-    padding: $space-s 0;
-    // min-height: 100vh;
-    // height: 1px;
-    // margin-bottom: $space-s;
     padding: $space-m 0;
+
+    position: relative;
 }
 
 input,
@@ -89,6 +91,10 @@ form {
     padding: 0 $space-s;
 }
 
+.fx__torn {
+    clip-path: polygon(0 1%, 13% 5%, 23% 2%, 30% 4%, 38% 2%, 48% 0%, 53% 5%, 60% 9%, 68% 4%, 79% 7%, 90% 2%, 96% 5%, 100% 7%, 100% 95%, 92% 100%, 87% 98%, 75% 96%, 65% 98%, 56% 100%, 48% 97%, 35% 100%, 22% 96%, 18% 100%, 13% 99%, 0 96%);
+}
+
 strong {
     color: $accent;
 }
@@ -101,6 +107,11 @@ hr {
 a {
     color: $secondary-shade;
     transition: $time-f;
+
+    &:hover,
+    &:active {
+        color: $secondary;
+    }
 }
 
 button.btn {
@@ -302,9 +313,32 @@ h6 {
 p {
     font-size: $p;
     font-family: $paragraph;
+    font-weight: 400;
 }
 
 small {
     font-size: $small;
     font-family: $paragraph;
+}
+
+.bg__dark {
+    background-color: $primary;
+}
+
+.bg__light {
+    background-color: $secondary;
+
+    color: $primary;
+}
+
+.separator {
+    &.separator__light {
+        .shape-fill {
+            fill: $secondary;
+        }
+    }
+
+    .shape-fill {
+        fill: $primary;
+    }
 }

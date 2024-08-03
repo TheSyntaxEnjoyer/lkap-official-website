@@ -1,24 +1,15 @@
-svg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
+.container {
+    width: 100vw;
 
-    animation: rotate 1s linear infinite;
-    animation-play-state: paused;
-    animation-delay: calc(var(--scroll) * -2s);
+    background-color: maroon;
+    color: lightblue;
 
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-}
+    font-family: Arial, Helvetica, sans-serif;
 
-@keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
+    display: flex;
 }
 
 body {
-    min-height: 500vh;
+    background-color: black;
+    margin: 0;
 }

@@ -23,7 +23,7 @@ $h2: pow($fs-ratio, 5) * 1rem;
 $h3: pow($fs-ratio, 4) * 1rem;
 $h4: pow($fs-ratio, 3) * 1rem;
 $h5: pow($fs-ratio, 2) * 1rem;
-$h6: pow($fs-ratio, 1) * 1rem;
+$h6: pow($fs-ratio, 1.5) * 1rem;
 $p: 1rem;
 $small: pow($fs-ratio, -0.5) * 1rem;
 
@@ -68,6 +68,14 @@ $border-l: 10px solid $secondary;
 $border-shade-s: 2.5px solid $secondary-shade;
 $border-shade-m: 5px solid $secondary-shade;
 $border-shade-l: 10px solid $secondary-shade;
+
+$border-dark-s: 2.5px solid $primary;
+$border-dark-m: 5px solid $primary;
+$border-dark-l: 10px solid $primary;
+
+$border-dark-tint-s: 2.5px solid $primary-tint;
+$border-dark-tint-m: 5px solid $primary-tint;
+$border-dark-tint-l: 10px solid $primary-tint;
 
 $border-accent-s: 2.5px solid $accent;
 $border-accent-m: 5px solid $accent;
