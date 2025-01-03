@@ -372,14 +372,14 @@ small {
 }
 .fx__revealIn .fx__e1.active {
   background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, #171717 92%, rgba(23, 23, 23, 0.7721289199) 94%, rgba(23, 23, 23, 0.3071429255) 97%, rgba(23, 23, 23, 0) 100%);
+  background: linear-gradient(90deg, rgb(22.95, 22.95, 22.95) 92%, rgba(22.95, 22.95, 22.95, 0.7721289199) 94%, rgba(22.95, 22.95, 22.95, 0.3071429255) 97%, rgba(22.95, 22.95, 22.95, 0) 100%);
 }
 .fx__revealIn .fx__e2 {
   transform-origin: right;
 }
 .fx__revealIn .fx__e2.active {
   background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(23, 23, 23, 0) 0%, rgba(23, 23, 23, 0.3071429255) 3%, rgba(23, 23, 23, 0.7721289199) 6%, #171717 8%);
+  background: linear-gradient(90deg, rgba(22.95, 22.95, 22.95, 0) 0%, rgba(22.95, 22.95, 22.95, 0.3071429255) 3%, rgba(22.95, 22.95, 22.95, 0.7721289199) 6%, rgb(22.95, 22.95, 22.95) 8%);
 }
 
 body {
@@ -574,7 +574,7 @@ section.timeline .timeline__timeline {
   --event-width: 22.5vw;
   --event-height: 30ch;
   display: flex;
-  mask-image: linear-gradient(90deg, hsl(0, 0%, 9%) 75%, rgba(23, 23, 23, 0.2) 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, hsl(0, 0%, 9%) 75%, rgba(22.95, 22.95, 22.95, 0.2) 94%, transparent 100%);
   overflow-x: hidden;
 }
 section.timeline .timeline__timeline > * {

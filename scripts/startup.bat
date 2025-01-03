@@ -1,3 +1,3 @@
-cd "C:\Users\Mikael Mesias\Documents\LKAP Website"
+cd "../"
 @REM start npx serve
 sass --watch scss/main.scss:css/main.css
