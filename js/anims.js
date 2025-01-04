@@ -8,7 +8,7 @@ var colors = {
     accent: "#ad0023",
     accent_tint: "#fa0032",
     accent_shade: "#610013",
-}
+};
 
 var timing = {
     f: 300,
@@ -16,8 +16,8 @@ var timing = {
     ms: 1000,
     s: 1500,
     xs: 1800,
-    xxs: 2150
-}
+    xxs: 2150,
+};
 
 var offset = {
     xf: 150,
@@ -26,8 +26,8 @@ var offset = {
     ms: 850,
     s: 1250,
     xs: 1500,
-    xxs: 1800
-}
+    xxs: 1800,
+};
 
 // function once(subject) {
 //     var first = true;
@@ -56,7 +56,6 @@ function once(subject) {
 var controller = new ScrollMagic.Controller();
 
 $(window).load(() => {
-
     setTimeout(() => {
         anime({
             targets: ".hero .hero__transition .transition__left div",
@@ -64,8 +63,8 @@ $(window).load(() => {
             easing: "easeInOutCubic",
             duration: timing.f,
             delay: anime.stagger(offset.xf, {
-                easing: "linear"
-            })
+                easing: "linear",
+            }),
         });
         anime({
             targets: ".hero .hero__transition .transition__right div",
@@ -73,29 +72,38 @@ $(window).load(() => {
             easing: "easeInOutCubic",
             duration: timing.f,
             delay: anime.stagger(offset.xf, {
-                easing: "linear"
+                easing: "linear",
             }),
             complete: () => {
                 $("body").css({
-                    "overflow-y": "scroll"
-                })
+                    "overflow-y": "scroll",
+                });
 
                 $(".hero .hero__transition").css({
-                    display: "none"
-                })
+                    display: "none",
+                });
 
-                console.log("COMPLETE")
-            }
-        })
+                console.log("COMPLETE");
+            },
+        });
     }, timing.f);
 
     new ScrollMagic.Scene({
-            triggerElement: ".about",
-            triggerHook: "onStart",
-            duration: "100%"
-        })
+        triggerElement: "body",
+        triggerHook: "onStart",
+        duration: "100%",
+    }).on("progress", () => {
+        switchBG("dark");
+    })
+
+    new ScrollMagic.Scene({
+        triggerElement: ".about",
+        triggerHook: "onStart",
+        duration: "100%",
+    })
         .addTo(controller)
         .on("start", (e) => {
+            // switchBG("dark");
             anime({
                 targets: ".about .fx__group-fadeIn > *",
                 translateY: -10,
@@ -103,41 +111,47 @@ $(window).load(() => {
                 easing: "easeInOutCubic",
                 duration: timing.f,
                 delay: anime.stagger(offset.xf, {
-                    easing: "linear"
+                    easing: "linear",
                 }),
-            })
+            });
         })
         .on("progress", (e) => {
-            let translateY = (Math.floor(2500 * e.progress) / 100);
+            switchBG("dark");
+            let translateY = Math.floor(2500 * e.progress) / 100;
             let translateX = Math.floor(2.5 * e.progress);
-            let rotate = Math.floor(5 * e.progress)
+            let rotate = Math.floor(5 * e.progress);
 
             // console.log(Math.floor(translateY * translateY));
             // console.log(translateY)
 
             $("#about__img2").css({
                 transform: `translate(calc(-15% + -${translateX}%), calc(-50% + -${translateY}%))`,
-                rotate: `calc(-10deg + -${rotate}deg)`
+                rotate: `calc(-10deg + -${rotate}deg)`,
             });
 
             $("#about__img3").css({
                 transform: `translate(calc(15% + ${translateX}%), calc(-50% + -${translateY}%))`,
-                rotate: `calc(10deg + ${rotate}deg)`
+                rotate: `calc(10deg + ${rotate}deg)`,
             });
 
             $("#about__img1").css({
-                transform: `translateY(-${translateY}%)`
-            })
-        })
+                transform: `translateY(-${translateY}%)`,
+            });
+        });
 
     // TIMELINE
     new ScrollMagic.Scene({
-            triggerElement: ".timeline",
-            triggerHook: "onStart",
-        })
+        triggerElement: ".timeline",
+        triggerHook: "onStart",
+    })
         .addTo(controller)
+        .on("progress", () => {
+            switchBG("light");
+        })
         .on("start", (e) => {
-            var tl = anime.timeline()
+            var tl = anime.timeline();
+
+            // switchBG("light");
 
             tl.add({
                 targets: ".timeline .fx__group-fadeIn > *",
@@ -146,9 +160,9 @@ $(window).load(() => {
                 easing: "easeInOutCubic",
                 duration: timing.f,
                 delay: anime.stagger(offset.xf, {
-                    easing: "linear"
+                    easing: "linear",
                 }),
-            })
+            });
 
             tl.add({
                 targets: ".timeline .fx__group-fadeIn-Right .event",
@@ -157,9 +171,20 @@ $(window).load(() => {
                 easing: "easeInOutCubic",
                 duration: timing.f,
                 delay: anime.stagger(offset.f, {
-                    easing: "linear"
-                })
-            }, `+=${offset.f}`)
-        })
+                    easing: "linear",
+                }),
+            },
+                `+=${offset.f}`
+            );
+        });
+});
 
-})
+const switchBG = (bg) => {
+    if (bg === "dark") {
+        $("body").removeClass("bg__light");
+        $("body").addClass("bg__dark");
+    } else {
+        $("body").removeClass("bg__dark");
+        $("body").addClass("bg__light");
+    }
+};

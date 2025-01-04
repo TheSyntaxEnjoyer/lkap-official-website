@@ -206,16 +206,16 @@ section.timeline {
         transform: translateY(-75px);
     }
 
-    .timeline__shadow {
-        filter: drop-shadow(0 35px 0px $secondary) drop-shadow(0 -35px 0px $secondary) drop-shadow(0 25px 0px $secondary-shade) drop-shadow(0 -25px 0px $secondary-shade) drop-shadow(0 15px 0px $primary-tint) drop-shadow(0 -15px 0px $primary-tint);
+    // .timeline__shadow {
+    //     filter: drop-shadow(0 35px 0px $secondary) drop-shadow(0 -35px 0px $secondary) drop-shadow(0 25px 0px $secondary-shade) drop-shadow(0 -25px 0px $secondary-shade) drop-shadow(0 15px 0px $primary-tint) drop-shadow(0 -15px 0px $primary-tint);
 
-        width: 100%;
-        height: 100%;
+    //     width: 100%;
+    //     height: 100%;
 
-    }
+    // }
 
     .fx__torn {
-        background-color: $secondary-tint;
+        // background-color: $secondary-tint;
 
         padding: $space-m 0;
     }
@@ -250,7 +250,7 @@ section.timeline {
         --event-width: 22.5vw;
         --event-height: 30ch;
         display: flex;
-        mask-image: linear-gradient(90deg, $primary 75%, rgba($primary, 0.2) 94%, transparent 100%);
+        // mask-image: linear-gradient(90deg, $primary 75%, rgba($primary, 0.2) 94%, transparent 100%);
         overflow-x: hidden;
 
 
