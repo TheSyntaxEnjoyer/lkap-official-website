@@ -93,17 +93,17 @@ $(window).load(() => {
         triggerHook: "onStart",
         duration: "100%",
     }).on("progress", () => {
-        switchBG("dark");
+         
     })
 
     new ScrollMagic.Scene({
         triggerElement: ".about",
         triggerHook: "onStart",
-        duration: "100%",
+        duration: "1000",
     })
         .addTo(controller)
         .on("start", (e) => {
-            // switchBG("dark");
+            //  
             anime({
                 targets: ".about .fx__group-fadeIn > *",
                 translateY: -10,
@@ -116,7 +116,7 @@ $(window).load(() => {
             });
         })
         .on("progress", (e) => {
-            switchBG("dark");
+             ;
             let translateY = Math.floor(2500 * e.progress) / 100;
             let translateX = Math.floor(2.5 * e.progress);
             let rotate = Math.floor(5 * e.progress);
@@ -143,15 +143,13 @@ $(window).load(() => {
     new ScrollMagic.Scene({
         triggerElement: ".timeline",
         triggerHook: "onStart",
+        duration: "100%",
     })
         .addTo(controller)
-        .on("progress", () => {
-            switchBG("light");
-        })
         .on("start", (e) => {
             var tl = anime.timeline();
 
-            // switchBG("light");
+            //  
 
             tl.add({
                 targets: ".timeline .fx__group-fadeIn > *",
@@ -176,7 +174,20 @@ $(window).load(() => {
             },
                 `+=${offset.f}`
             );
-        });
+        })
+        .on("progress", () => {
+             
+        })
+
+    new ScrollMagic.Scene({
+        triggerElement: ".instructors",
+        triggerHook: "onStart",
+        duration: "100%",
+    })
+        .addTo(controller)
+        .on("progress", () => {
+             
+        })
 });
 
 const switchBG = (bg) => {

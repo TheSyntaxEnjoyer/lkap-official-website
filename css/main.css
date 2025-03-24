@@ -206,7 +206,7 @@ h6,
 p,
 small {
   margin: 0;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 strong {
@@ -531,7 +531,6 @@ section.about .about__content a {
 }
 section.timeline {
   padding: 0;
-  color: hsl(0, 0%, 9%);
   margin: 7em 0;
 }
 section.timeline .fx__revealIn {
@@ -566,6 +565,7 @@ section.timeline .timeline__timeline {
   --event-width: 22.5vw;
   --event-height: 30ch;
   display: flex;
+  mask-image: linear-gradient(90deg, hsl(0, 0%, 9%) 75%, rgba(22.95, 22.95, 22.95, 0.2) 94%, transparent 100%);
   overflow-x: hidden;
 }
 section.timeline .timeline__timeline > * {
@@ -654,39 +654,67 @@ section.timeline .timeline__timeline .banner .description a {
   color: hsl(45, 23%, 100%);
 }
 
-section.instructors {
-  --card-width: 50ch;
-}
 section.instructors .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25ch;
+  gap: 8em;
+}
+section.instructors .container .instructors__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 section.instructors .container .instructors__heading .wrapper {
-  width: 100%;
+  width: 65%;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  align-items: center;
   text-align: center;
+}
+section.instructors .container .instructors__heading .wrapper a {
+  gap: 0.5em;
 }
 section.instructors .container .instructors__content {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 section.instructors .container .instructors__content > div {
   width: 50%;
 }
-section.instructors .container .instructors__content .instructors__img {
-  height: 100vh;
+section.instructors .container .instructors__content a {
+  gap: 0.5em;
+}
+section.instructors .container .instructors__content .instructors__imgs {
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(-20px 0px 0px hsl(348, 100%, 49%)) drop-shadow(-20px 0px 0px hsl(348, 100%, 34%)) drop-shadow(-20px 0px 0px hsl(45, 23%, 75%));
 }
-section.instructors .container .instructors__content .instructors__img img {
-  width: 100%;
+section.instructors .container .instructors__content .instructors__imgs img {
   aspect-ratio: 3/4;
+  width: 70%;
+}
+section.instructors .container .instructors__content .instructors__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+section.instructors .container .instructors__content .instructors__details .headings {
+  text-transform: uppercase;
+  line-height: 2.75em;
+}
+section.instructors .container .instructors__content .instructors__details .headings h3 {
+  color: hsl(45, 23%, 90%);
+}
+section.instructors .container .instructors__content .instructors__details .headings h5 {
+  color: hsl(45, 23%, 75%);
+}
+section.instructors .container .instructors__content .instructors__details .description {
+  width: 70%;
 }
 
 section.contact {
