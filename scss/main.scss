@@ -483,13 +483,46 @@ section.contact {
     }
 
     .contact__map {
+      display: flex;
+      flex-direction: column;
+
+      box-shadow: $shadow-right-shade-m;
+      border: $border-shade-m;
+      background-color: $secondary-shade;
       iframe {
         width: 100%;
         height: 100%;
+      }
 
-        box-shadow: $shadow-right-shade-m;
-        border: $border-shade-m;
+      .branches {
+        width: 100%;
+        padding: $pad-s 0;
+        display: flex;
+        justify-content: center;
+        gap: $gap-m;
+
+        button {
+          text-transform: uppercase;
+          color: $primary-tint;
+
+          background-color: transparent;
+          border: none;
+          font-size: $h6;
+          font-family: $heading;
+
+          transition: $time-f;
+
+          &:hover, &.active {
+            color: $accent;
+          }
+        }
       }
     }
   }
+}
+
+footer {
+  height: 50vh;
+  background-color: $primary-tint;
+  color: $primary;
 }

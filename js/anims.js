@@ -89,14 +89,6 @@ $(window).load(() => {
     }, timing.f);
 
     new ScrollMagic.Scene({
-        triggerElement: "body",
-        triggerHook: "onStart",
-        duration: "100%",
-    }).on("progress", () => {
-         
-    })
-
-    new ScrollMagic.Scene({
         triggerElement: ".about",
         triggerHook: "onStart",
         duration: "1000",
@@ -116,7 +108,7 @@ $(window).load(() => {
             });
         })
         .on("progress", (e) => {
-             ;
+            ;
             let translateY = Math.floor(2500 * e.progress) / 100;
             let translateX = Math.floor(2.5 * e.progress);
             let rotate = Math.floor(5 * e.progress);
@@ -176,7 +168,7 @@ $(window).load(() => {
             );
         })
         .on("progress", () => {
-             
+
         })
 
     new ScrollMagic.Scene({
@@ -185,8 +177,38 @@ $(window).load(() => {
         duration: "100%",
     })
         .addTo(controller)
+        .on("start", (e) => {
+            var tl = anime.timeline();
+
+            tl.add({
+                targets: ".instructors .fx__fadeIn",
+                translateX: 0,
+                opacity: 1,
+                easing: "easeInOutCubic",
+                duration: timing.f,
+                // delay: anime.stagger(offset.f, {
+                //     easing: "linear",
+                // }),
+            });
+
+
+            tl.add({
+                targets: ".instructors .fx__group-fadeIn > *",
+                translateY: -10,
+                opacity: 1,
+                easing: "easeInOutCubic",
+                duration: timing.f,
+                delay: anime.stagger(offset.xf, {
+                    easing: "linear",
+                }),
+            },
+                `+=${offset.f}`
+            );
+
+
+        })
         .on("progress", () => {
-             
+
         })
 });
 

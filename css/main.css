@@ -747,11 +747,41 @@ section.contact .container .contact__form .form__details .contact__links {
   font-size: 1.68141189rem;
   gap: 1em;
 }
+section.contact .container .contact__map {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 15px 15px 0 0 hsl(45, 23%, 75%);
+  border: 5px solid hsl(45, 23%, 75%);
+  background-color: hsl(45, 23%, 75%);
+}
 section.contact .container .contact__map iframe {
   width: 100%;
   height: 100%;
-  box-shadow: 15px 15px 0 0 hsl(45, 23%, 75%);
-  border: 5px solid hsl(45, 23%, 75%);
+}
+section.contact .container .contact__map .branches {
+  width: 100%;
+  padding: 0.5em 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+section.contact .container .contact__map .branches button {
+  text-transform: uppercase;
+  color: hsl(0, 0%, 24%);
+  background-color: transparent;
+  border: none;
+  font-size: 1.68141189rem;
+  font-family: "Squada One";
+  transition: 0.3s;
+}
+section.contact .container .contact__map .branches button:hover, section.contact .container .contact__map .branches button.active {
+  color: hsl(348, 100%, 34%);
+}
+
+footer {
+  height: 50vh;
+  background-color: hsl(0, 0%, 24%);
+  color: hsl(0, 0%, 9%);
 }
 
 /*# sourceMappingURL=main.css.map */
